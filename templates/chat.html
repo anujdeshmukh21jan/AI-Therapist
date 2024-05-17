@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+  
+  <div>
+    <video id="videoElement" autoplay></video>
+</div>
+<div class = "button_class">
+    <button id= "start" onclick="startCamera()">Start Camera</button>
+    <button id="stop" onclick="stopCamera()">Stop Camera</button>
+</div>
+
+
+<script>
+    let videoStream;
+
+    async function startCamera() {
+        try {
+            videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const videoElement = document.getElementById('videoElement');
+            videoElement.srcObject = videoStream;
+            videoElement.style.border = "5px solid black";        } catch (error) {
+            console.error('Error accessing webcam:', error);
+        }
+    }
+
+    function stopCamera() {
+        if (videoStream) {
+            const tracks = videoStream.getTracks();
+            tracks.forEach(track => track.stop());
+            const videoElement = document.getElementById('videoElement');
+            videoElement.srcObject = null;
+            videoElement.style.border = "none";  
+        }
+    }
+</script>
+
+
+    <div class="container"></div>
+
+    <!-- Image above the chat box -->
+    <div class="image-container">
+        <img src="therapist.jpg" alt="Profile Image">
+    </div>
+
+    <div class="chat-container">
+        <p>
+            Therapist: Hello, How are you feeling today?
+        </p>
+        <p>
+            Anuj: Hi, I am feeling little depressed.
+        </p>
+        <p>
+            Therapist: I'm sorry to hear that. Can you tell me more about what's been on your mind lately? I'm here to support you. 
+        </p>
+        <p>
+            Anuj: Well, I guess I'm just not used to talking about my feelings with someone I don't know. It feels a bit uncomfortable.
+        </p>
+        <p>
+            Therapist: I understand. It can be challenging to open up to someone new, especially about personal matters. What would make you feel more comfortable as we start our conversation?
+        </p>
+        <p>
+            Anuj: I'm not sure, maybe just knowing that you're here to listen without judgment.
+        </p>
+        <p>
+            Therapist: Absolutely, Anuj. That's exactly what I'm here for. I'm here to listen to your concerns and support you in any way I can. What's been on your mind lately that you'd like to discuss today?
+        </p>
+    </div>
+
+    <div class="polarity">
+        <h2>Polarity</h2>
+        <p>Negativity: 0.688</p>
+        <p>Neutral: 0.312</p>
+        <p>Positivity: 0.0</p>
+        <p>Compound: -0.296</p>
+    </div>
+
+</body>
+</html>

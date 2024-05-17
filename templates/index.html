@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="centered-content">
+    <h1>Talk To Me</h1>
+    <div class="container">
+      <div class="cta-form">
+        <h2>Welcome to AI Therapist</h2> 
+        <p>Your virtual mental health companion</p>
+      </div>
+      <form action="chat.html" class="form">
+        <input type="text" placeholder="" class="form__input" id="name" />
+        <label for="name" class="form__label">Name</label>
+
+        <input type="number" placeholder="" class="form__input" id="age" />
+        <label for="age" class="form__label">Age</label>
+
+        <select class="form__input" id="gender">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="gender" class="form__label">Gender</label>
+        
+        <button type="submit" class="submit-button">Start Session</button>
+      </form>
+      
+    </div>
+  </div>
+</body>
+</html>
